@@ -52,6 +52,7 @@ add_library(bssl-compat
     source/cbb.c
     source/bn.c
     source/asn1_a_int.c
+    source/rand.cxx
     )
 
 target_include_directories(bssl-compat PRIVATE
@@ -61,3 +62,5 @@ target_include_directories(bssl-compat PRIVATE
 #       needed only if ssl/ssl.h is used.
 #       ${openssl_SOURCE_DIR}
         )
+
+target_link_libraries(bssl-compat PRIVATE crypto)
