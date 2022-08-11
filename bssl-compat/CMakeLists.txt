@@ -52,6 +52,7 @@ add_library(bssl-compat
     source/cbb.c
     source/bn.c
     source/asn1_a_int.c
+    source/rand.cxx
     )
 
 target_include_directories(bssl-compat PRIVATE
