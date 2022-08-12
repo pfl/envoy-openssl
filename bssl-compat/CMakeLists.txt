@@ -55,10 +55,16 @@ add_library(bssl-compat
     source/rand.cxx
     )
 
-target_include_directories(bssl-compat PRIVATE
+target_link_libraries(bssl-compat PRIVATE crypto)
+
+target_include_directories(bssl-compat PUBLIC
         # needed for ssl includes
         ${openssl_SOURCE_DIR}/include
         include
 #       needed only if ssl/ssl.h is used.
 #       ${openssl_SOURCE_DIR}
         )
+
+add_executable(test_program)
+target_sources(test_program PRIVATE test.cxx)
+target_link_libraries(test_program PRIVATE bssl-compat)

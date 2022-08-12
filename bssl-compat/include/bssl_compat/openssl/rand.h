@@ -21,8 +21,14 @@
 extern "C" {
 #endif
 
+#if !defined(BORINGSSL_NO_CXX)
+extern "C++" {
+
 // RAND_bytes writes |len| bytes of random data to |buf| and returns one.
 OPENSSL_EXPORT int RAND_bytes(uint8_t *buf, size_t len);
+
+}  // extern C++
+#endif  // !defined(BORINGSSL_NO_CXX)
 
 #if defined(__cplusplus)
 }  // extern C
