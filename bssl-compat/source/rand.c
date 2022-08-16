@@ -7,6 +7,7 @@
 
 #define __USE_GNU
 #include <dlfcn.h>
+#include <stdio.h>
 
 int (*openssl_RAND_bytes)(unsigned char *buf, int num);
 
@@ -19,6 +20,8 @@ OPENSSL_EXPORT int RAND_bytes(uint8_t *buf, size_t len) {
 		if (!openssl_RAND_bytes)
 			return 0;
 	}
+	printf("%s: openssl_RAND_bytes %p\n",
+	       __FUNCTION__, openssl_RAND_bytes);
 
 	if (openssl_RAND_bytes((unsigned char *)buf, (int)len) <= 0)
 		return 0;

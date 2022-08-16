@@ -65,3 +65,7 @@ target_include_directories(bssl-compat PUBLIC
         )
 
 target_link_libraries(bssl-compat PRIVATE crypto)
+
+add_executable(test_program)
+target_sources(test_program PRIVATE test.c)
+target_link_libraries(test_program PRIVATE bssl-compat)
