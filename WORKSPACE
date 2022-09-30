@@ -18,6 +18,11 @@ local_repository(
     path = "envoy",
 )
 
+bind(
+    name = "@boringssl",
+    actual = "//bssl-compat",
+)
+
 load("@envoy//bazel:api_binding.bzl", "envoy_api_binding")
 
 envoy_api_binding()
