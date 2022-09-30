@@ -16,6 +16,14 @@ rules_foreign_cc_dependencies()
 local_repository(
     name = "envoy",
     path = "envoy",
+    repo_mapping = {
+        "@boringssl": "@bssl_compat",
+    },
+)
+
+local_repository(
+    name = "bssl_compat",
+    path = "bssl_compat",
 )
 
 bind(
