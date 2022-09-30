@@ -14,16 +14,16 @@ load("@rules_foreign_cc//foreign_cc:repositories.bzl", "rules_foreign_cc_depende
 rules_foreign_cc_dependencies()
 
 local_repository(
-    name = "envoy",
-    path = "envoy",
-    repo_mapping = {
-        "@boringssl": "@bssl_compat",
-    },
+    name = "bssl-compat",
+    path = "bssl-compat",
 )
 
 local_repository(
-    name = "bssl_compat",
-    path = "bssl_compat",
+    name = "envoy",
+    path = "envoy",
+    repo_mapping = {
+        "@boringssl": "@bssl-compat",
+    },
 )
 
 bind(
