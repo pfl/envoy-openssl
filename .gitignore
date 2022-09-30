@@ -2,7 +2,6 @@
 BROWSE
 /build
 /build_*
-build
 *.bzlc
 .cache
 .classpath
